@@ -1,3 +1,4 @@
+#WARNING: `apm does not work without graphic manager yet.`
 ## Wercker box to Atom.io build
 
 Box with all tools to build package for atom.io
