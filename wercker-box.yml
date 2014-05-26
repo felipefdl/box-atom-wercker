@@ -1,0 +1,17 @@
+name: atom
+version: 0.0.1
+inherits: wercker/ubuntu12.04-nodejs0.10
+type: main
+platform: ubuntu@12.04
+description: Box with all tools to build package for atom.io
+packages:
+  - nodejs@0.10
+  - atom.io@latest
+keywords:
+  - nodejs
+  - atom
+  - atom.io
+script: |
+  sudo add-apt-repository ppa:webupd8team/atom -y
+  sudo apt-get update
+  sudo apt-get install atom -y
