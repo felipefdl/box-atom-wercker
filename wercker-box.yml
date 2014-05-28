@@ -1,17 +1,21 @@
 name: atom
-version: 0.0.4
+version: 0.0.5
 inherits: wercker/ubuntu12.04-nodejs0.10@1.0.6
 type: main
 platform: ubuntu@12.04
 description: Box with all tools to build package for atom.io
 packages:
   - atom.io@latest
+  - xvfb@latest
 keywords:
   - nodejs
   - atom
   - atom.io
-  - xvfb
 script: |
   sudo add-apt-repository ppa:webupd8team/atom -y
   sudo apt-get update
   sudo apt-get install atom xvfb -y
+init-script: |
+  export DISPLAY=:99.0
+  start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset
+  sleep 3
