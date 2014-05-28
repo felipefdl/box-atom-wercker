@@ -1,5 +1,5 @@
 name: atom
-version: 0.0.9
+version: 0.1.0
 inherits: wercker/ubuntu12.04-nodejs0.10@1.0.6
 type: main
 platform: ubuntu@12.04
@@ -12,12 +12,6 @@ keywords:
   - atom
   - atom.io
 script: |
-  # Enable virtual display
-  sudo sh -c 'echo "export DISPLAY=:99.0" > /etc/rc.local'
-  sudo sh -c 'echo "start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset" >> /etc/rc.local'
-  sudo sh -c 'echo "sleep 3" >> /etc/rc.local'
-  sudo sh -c 'echo "exit 0" >> /etc/rc.local'
-
   # Install Atom.io
   sudo add-apt-repository ppa:webupd8team/atom -y
   sudo apt-get update
